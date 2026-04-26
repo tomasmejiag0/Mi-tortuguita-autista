@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
   <title>mi tortuguita autista 🐢✨</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -91,6 +91,7 @@
       justify-content: flex-end;
       padding-bottom: 5rem;
       pointer-events: none;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.6);
     }
 
     /* ── LAYER 4: Photo UI (fades in on scroll) ── */
@@ -149,10 +150,10 @@
     /* ── Typography shared ── */
     .eyebrow {
       font-size: 10px;
-      letter-spacing: 7px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: rgba(240,237,232,0.3);
-      font-weight: 200;
+      color: rgba(240,237,232,0.7);
+      font-weight: 300;
       margin-bottom: 0.4rem;
     }
     .big-num {
@@ -169,26 +170,28 @@
       filter: drop-shadow(0 0 50px rgba(155,143,239,0.55));
     }
     .meses {
-      font-size: 12px;
-      letter-spacing: 11px;
+      font-size: 13px;
+      letter-spacing: 9px;
       text-transform: uppercase;
-      color: rgba(240,237,232,0.35);
-      font-weight: 200;
+      color: rgba(240,237,232,0.65);
+      font-weight: 300;
       margin-top: -0.2rem;
       animation: fadein 1s ease 0.9s both;
     }
     .tagline {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(15px, 3.2vw, 21px);
+      font-size: clamp(16px, 4vw, 21px);
       font-style: italic;
       font-weight: 300;
-      color: rgba(240,237,232,0.5);
+      color: rgba(240,237,232,0.75);
       margin-top: 0.6rem;
       text-align: center;
+      padding: 0 1rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
     }
     .hero-date {
       font-size: 10px;
-      color: rgba(240,237,232,0.2);
+      color: rgba(240,237,232,0.5);
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-top: 0.3rem;
@@ -203,10 +206,10 @@
       filter: drop-shadow(0 4px 30px rgba(0,0,0,0.6));
       animation: none;
     }
-    #photo-ui .eyebrow { color: rgba(240,237,232,0.5); }
-    #photo-ui .meses { color: rgba(240,237,232,0.5); animation: none; }
-    #photo-ui .tagline { color: rgba(240,237,232,0.7); }
-    #photo-ui .hero-date { color: rgba(240,237,232,0.35); }
+    #photo-ui .eyebrow { color: rgba(240,237,232,0.8); }
+    #photo-ui .meses { color: rgba(240,237,232,0.8); animation: none; }
+    #photo-ui .tagline { color: rgba(240,237,232,0.9); text-shadow: 0 2px 25px rgba(0,0,0,0.9); }
+    #photo-ui .hero-date { color: rgba(240,237,232,0.6); }
 
     /* ═══════════════════════════════════════════
        CONTENT BELOW THE TRANSITION
@@ -303,10 +306,96 @@
     @keyframes fadein { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
     @keyframes popin { from{opacity:0;transform:scale(0.3)rotate(-12deg)}to{opacity:1;transform:scale(1)rotate(0)} }
     @keyframes popup-in { from{opacity:0;transform:translateX(-50%)scale(.8)translateY(10px)}to{opacity:1;transform:translateX(-50%)scale(1)translateY(0)} }
-    @keyframes confetti-fall { 0%{transform:translateY(0)rotate(0deg);opacity:1}100%{transform:translateY(600px)rotate(720deg);opacity:0} }
+    @keyframes confetti-fall { 0%{transform:translateY(0)rotate(0deg);opacity:1}100%{transform:translateY(110vh)rotate(720deg);opacity:0} }
 
     .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.9s ease,transform 0.9s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — DESKTOP
+    ═══════════════════════════════════════════ */
+    @media (min-width: 768px) {
+      /* Larger nebula blobs */
+      .n1{width:700px;height:550px;}
+      .n2{width:600px;height:500px;}
+      .n3{width:450px;height:380px;}
+
+      /* Center and constrain content sections */
+      .section {
+        max-width: 720px;
+        padding: 6rem 2rem;
+        gap: 2.5rem;
+      }
+
+      /* Stats grid: more spacing on desktop */
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .stat-card {
+        padding: 1.75rem 1rem;
+        border-radius: 20px;
+      }
+      .stat-num { font-size: 44px; }
+      .stat-label { font-size: 10px; letter-spacing: 3px; margin-top: 8px; }
+
+      /* Reason items */
+      .reasons-list { gap: 10px; }
+      .reason-item {
+        font-size: 15px;
+        padding: 1rem 1.25rem;
+        border-radius: 14px;
+      }
+
+      /* Footer */
+      .footer-section { padding: 3rem 2rem 8rem; gap: 2.5rem; }
+      .footer-quote { font-size: clamp(18px, 2.2vw, 26px); max-width: 420px; }
+
+      /* Button */
+      .btn { padding: 1.1rem 3.25rem; font-size: 15px; }
+
+      /* Popup: wider on desktop */
+      .popup {
+        max-width: 400px;
+        padding: 2rem 2.25rem;
+        font-size: 16px;
+        bottom: 60px;
+      }
+
+      /* Hero text */
+      #galaxy-ui, #photo-ui {
+        padding-bottom: 6rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 8px;
+      }
+
+      .tagline {
+        font-size: clamp(16px, 2vw, 22px);
+      }
+
+      .hero-date {
+        font-size: 11px;
+        letter-spacing: 4px;
+      }
+
+      /* Scroll hint */
+      .scroll-hint {
+        bottom: 2.25rem;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .section { max-width: 800px; }
+      .stat-num { font-size: 50px; }
+      .reason-item { font-size: 16px; }
+    }
+
+    /* Cursor: pointer on interactive elements */
+    .btn, .stat-card, .closebtn { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -411,7 +500,9 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2;
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+// Adjust FOV based on screen width: wider screens get a slightly narrower FOV for a cinematic feel
+const fov = window.innerWidth >= 768 ? 55 : 60;
+const camera = new THREE.PerspectiveCamera(fov, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(0, 0, 18);
 
 scene.add(new THREE.AmbientLight(0x111122, 2));
@@ -506,12 +597,122 @@ aGeo.setAttribute('position', new THREE.BufferAttribute(aPos, 3));
 const asteroidBelt = new THREE.Points(aGeo, new THREE.PointsMaterial({ color:0x8a7a60, size:0.12, transparent:true, opacity:0.6 }));
 scene.add(asteroidBelt);
 
-// Turtle sprite
+// Turtle sprite — drawn with canvas shapes so it works on all devices (no emoji rendering issues)
 const tCanvas = document.createElement('canvas');
 tCanvas.width = tCanvas.height = 256;
 const tCtx = tCanvas.getContext('2d');
-tCtx.font = '160px serif'; tCtx.textAlign = 'center'; tCtx.textBaseline = 'middle';
-tCtx.fillText('🐢', 128, 135);
+
+// Draw a cute SVG-style turtle using canvas 2D
+(function drawTurtle(ctx, cx, cy, scale) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.scale(scale, scale);
+
+  // Shadow
+  ctx.save();
+  ctx.globalAlpha = 0.18;
+  ctx.fillStyle = '#000';
+  ctx.beginPath();
+  ctx.ellipse(0, 52, 38, 10, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // Tail
+  ctx.fillStyle = '#5a9a3a';
+  ctx.beginPath();
+  ctx.ellipse(0, 42, 7, 14, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Body (shell base)
+  ctx.fillStyle = '#4a8a2a';
+  ctx.beginPath();
+  ctx.ellipse(0, 10, 42, 32, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Shell dome
+  const shellGrad = ctx.createRadialGradient(-8, -8, 5, 0, 8, 42);
+  shellGrad.addColorStop(0, '#7dcf50');
+  shellGrad.addColorStop(0.5, '#5aaa30');
+  shellGrad.addColorStop(1, '#3a7a18');
+  ctx.fillStyle = shellGrad;
+  ctx.beginPath();
+  ctx.ellipse(0, 8, 40, 30, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Shell pattern - hexagon-ish segments
+  ctx.strokeStyle = '#3a7a18';
+  ctx.lineWidth = 1.5;
+  ctx.globalAlpha = 0.6;
+  // Center hex
+  ctx.beginPath();
+  ctx.ellipse(0, 6, 14, 11, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  // Top
+  ctx.beginPath(); ctx.ellipse(0, -10, 10, 8, 0, 0, Math.PI * 2); ctx.stroke();
+  // Left
+  ctx.beginPath(); ctx.ellipse(-18, 8, 10, 8, -0.4, 0, Math.PI * 2); ctx.stroke();
+  // Right
+  ctx.beginPath(); ctx.ellipse(18, 8, 10, 8, 0.4, 0, Math.PI * 2); ctx.stroke();
+  // Bottom left
+  ctx.beginPath(); ctx.ellipse(-12, 22, 10, 7, -0.3, 0, Math.PI * 2); ctx.stroke();
+  // Bottom right
+  ctx.beginPath(); ctx.ellipse(12, 22, 10, 7, 0.3, 0, Math.PI * 2); ctx.stroke();
+  ctx.globalAlpha = 1;
+
+  // Shell shine
+  ctx.fillStyle = 'rgba(255,255,255,0.18)';
+  ctx.beginPath();
+  ctx.ellipse(-10, -4, 14, 9, -0.4, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Legs
+  ctx.fillStyle = '#5aaa30';
+  // Front left
+  ctx.beginPath(); ctx.ellipse(-34, 14, 10, 7, -0.6, 0, Math.PI * 2); ctx.fill();
+  // Front right
+  ctx.beginPath(); ctx.ellipse(34, 14, 10, 7, 0.6, 0, Math.PI * 2); ctx.fill();
+  // Back left
+  ctx.beginPath(); ctx.ellipse(-30, 28, 9, 6, -0.8, 0, Math.PI * 2); ctx.fill();
+  // Back right
+  ctx.beginPath(); ctx.ellipse(30, 28, 9, 6, 0.8, 0, Math.PI * 2); ctx.fill();
+
+  // Neck
+  ctx.fillStyle = '#5aaa30';
+  ctx.beginPath();
+  ctx.ellipse(0, -20, 11, 16, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Head
+  const headGrad = ctx.createRadialGradient(-3, -36, 3, 0, -34, 16);
+  headGrad.addColorStop(0, '#7dcf50');
+  headGrad.addColorStop(1, '#4a9a28');
+  ctx.fillStyle = headGrad;
+  ctx.beginPath();
+  ctx.ellipse(0, -34, 15, 13, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Eyes
+  ctx.fillStyle = '#fff';
+  ctx.beginPath(); ctx.ellipse(-6, -37, 4, 4, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(6, -37, 4, 4, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#1a1a2e';
+  ctx.beginPath(); ctx.ellipse(-6, -37, 2.2, 2.2, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(6, -37, 2.2, 2.2, 0, 0, Math.PI * 2); ctx.fill();
+  // Eye shine
+  ctx.fillStyle = 'rgba(255,255,255,0.8)';
+  ctx.beginPath(); ctx.ellipse(-5, -38.5, 1, 1, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(7, -38.5, 1, 1, 0, 0, Math.PI * 2); ctx.fill();
+
+  // Smile
+  ctx.strokeStyle = '#2a6a10';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(0, -31, 5, 0.2, Math.PI - 0.2);
+  ctx.stroke();
+
+  ctx.restore();
+})(tCtx, 128, 148, 1.9);
+
 const turtleTex = new THREE.CanvasTexture(tCanvas);
 const turtleMesh = new THREE.Mesh(
   new THREE.PlaneGeometry(4, 4),
@@ -556,6 +757,7 @@ window.addEventListener('mousemove', e => {
 
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
+  camera.fov = window.innerWidth >= 768 ? 55 : 60;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
@@ -668,7 +870,7 @@ function celebrate() {
   for (let i = 0; i < 65; i++) {
     const c = document.createElement('div');
     const s = 5 + Math.random() * 10;
-    c.style.cssText = `position:fixed;width:${s}px;height:${s}px;border-radius:${Math.random()>.5?'50%':'3px'};background:${cols[Math.floor(Math.random()*cols.length)]};left:${5+Math.random()*90}%;top:30%;animation:confetti-fall ${1.5+Math.random()*2.5}s ease forwards;animation-delay:${Math.random()*.7}s;pointer-events:none;z-index:2000;`;
+    c.style.cssText = `position:fixed;width:${s}px;height:${s}px;border-radius:${Math.random()>.5?'50%':'3px'};background:${cols[Math.floor(Math.random()*cols.length)]};left:${5+Math.random()*90}%;top:-${10+Math.random()*10}%;animation:confetti-fall ${1.5+Math.random()*2.5}s ease forwards;animation-delay:${Math.random()*.7}s;pointer-events:none;z-index:2000;`;
     document.body.appendChild(c);
     setTimeout(()=>c.remove(),4500);
   }
